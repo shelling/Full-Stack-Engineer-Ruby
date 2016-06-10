@@ -5,6 +5,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script>
+    window.Marvel = (window.Marvel || {});
+    window.Marvel.apikey = "<%= Rails.application.config_for(:marvel)[:api_key] %>";
+    window.Marvel.gateway = "<%= Rails.application.config_for(:marvel)[:gateway] %>";
+  </script>
 </head>
 <body>
 
