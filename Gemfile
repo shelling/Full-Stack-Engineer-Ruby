@@ -19,3 +19,5 @@ end
 
 gem 'devise'
 gem 'marvel_api'
+gem 'react-rails', "~> 1.7.1"
+gem 'sprockets-es6', require: "sprockets/es6"
