@@ -22,6 +22,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 100000;
 
   img {
     display: block;
@@ -48,11 +49,24 @@ header {
 .comic {
   @include span(1);
   margin-bottom: 20px;
+  position: relative;
 
-  img {
+  img.thumbnail {
     width: 100%;
+    min-height: 320px;
     max-height: 320px;
     object-fit: cover;
+    border: 10px solid transparent;
+
+    &.favorited {
+      border: 10px solid #f00;
+    }
+  }
+
+  img.heart {
+    position: absolute;
+    right: 4%;
+    top: 4%;
   }
 }
 

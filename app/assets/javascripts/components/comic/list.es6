@@ -32,7 +32,8 @@ window.Comic.List = class List extends React.Component {
       {
         this.state.comics.map((comic) => {
           return <div key={comic.id} className="comic">
-            <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} />
+            { comic.favorited && <img src="/images/heart_on.png" className="heart" /> }
+            <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} className={classNames("thumbnail", { favorited: comic.favorited })} />
           </div>
         })
       }

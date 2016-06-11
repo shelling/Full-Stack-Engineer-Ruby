@@ -1,4 +1,6 @@
 class Comic < ActiveRecord::Base
+  attr_accessor :favorited
+
   serialize :thumbnail, Hash
 
   has_many :favorites
