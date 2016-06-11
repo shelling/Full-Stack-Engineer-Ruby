@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :comics, only: [:index]
+  resources :favorites, only: [:create]
 end

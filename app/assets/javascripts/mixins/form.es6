@@ -23,4 +23,15 @@ window.Mixin.Form = {
     }
     return tmp;
   },
+
+  splice: function(name, array) {
+    this.update(name.split(/\./), { $splice: array });
+  },
+
+  replace: function(name, origin, current) {
+    let index = this.get(name).indexOf(origin);
+    if (index > -1) {
+      this.splice(name, [[index, 1, current]]);
+    }
+  },
 }

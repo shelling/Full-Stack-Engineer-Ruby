@@ -18,3 +18,10 @@
 //= require react_ujs
 //= require components
 //= require_tree .
+
+$.ajaxSetup({
+  dataType: "json",
+  contentType: "application/json",
+  success: function(data, status, xhr) { console.log(data) },
+  error: function(xhr, status, error) { console.log(xhr, status, error) },
+});

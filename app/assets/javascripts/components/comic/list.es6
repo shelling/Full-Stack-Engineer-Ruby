@@ -27,12 +27,16 @@ window.Comic.List = class List extends React.Component {
     }
   }
 
+  markFavorite(comic, favorite) {
+    this.replace("comics", comic, React.addons.update(comic, { favorited: { $set: true } }));
+  }
+
   render() {
     return <div id="comics">
       {
         this.state.comics.map((comic) => {
           return <div key={comic.id} className="comic">
-            { comic.favorited && <img src="/images/heart_on.png" className="heart" /> }
+            { comic.favorited ? <img src="/images/heart_on.png" className="heart" /> : <img src="/images/heart_off.png" className="heart off" onClick={Favorite.create.bind(this, { favorite: { comic_id: comic.id } }, this.markFavorite.bind(this, comic))} /> }
             <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} className={classNames("thumbnail", { favorited: comic.favorited })} />
           </div>
         })
