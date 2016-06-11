@@ -3,6 +3,10 @@
  *= require_self
  */
 
+body {
+  background: #2B2B2B;
+}
+
 @import "susy";
 
 $susy: (
@@ -49,5 +53,28 @@ header {
     width: 100%;
     max-height: 320px;
     object-fit: cover;
+  }
+}
+
+#pages {
+  display: block;
+  clear: both;
+}
+
+.page {
+  text-decoration: none;
+  color: #EA272E;
+  background: #fff;
+  font-family: Arial;
+  padding: 6px 12px;
+  margin: 6px 12px;
+  font-weight: bold;
+
+  &.previous {
+    float: left;
+  }
+
+  &.next {
+    float: right;
   }
 }
