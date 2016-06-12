@@ -34,4 +34,23 @@ window.Mixin.Form = {
       this.splice(name, [[index, 1, current]]);
     }
   },
+
+  change: function(e) {
+    if (e.target.type == "checkbox") {
+      this.set(e.target.name, e.target.checked);
+    } else {
+      this.set(e.target.name, e.target.value);
+    }
+  },
+
+  onStop: function(counter, counterstore, callback) {
+    if(this.state[counterstore] == counter) {
+      callback();
+    }
+  },
+
+  detectStop: function(microsecond, callback, e) {
+    setTimeout(this.onStop.bind(this), microsecond, ++this.state.typingcounter, "typingcounter", callback);
+    this.change(e);
+  },
 }
