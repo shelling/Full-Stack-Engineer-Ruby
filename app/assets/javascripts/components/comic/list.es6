@@ -10,20 +10,20 @@ window.Comic.List = class List extends React.Component {
   }
 
   componentWillMount() {
-    Comic.retrieve.bind(this)({ orderBy: "-modified" });
+    Comic.retrieve({ orderBy: "-modified" }, this.set.bind(this, "comics"));
   }
 
   increment() {
     let page = this.get("page") + 1;
     this.set("page", page);
-    Comic.retrieve.bind(this)({ orderBy: "-modified", offset: page * 20 });
+    Comic.retrieve({ orderBy: "-modified", offset: page * 20 }, this.set.bind(this, "comics"));
   }
 
   decrement() {
     let page = this.get("page") - 1;
     if (page >= 0) {
       this.set("page", page);
-      Comic.retrieve.bind(this)({ orderBy: "-modified", offset: page * 20 });
+      Comic.retrieve({ orderBy: "-modified", offset: page * 20 }, this.set.bind(this, "comics"));
     }
   }
 

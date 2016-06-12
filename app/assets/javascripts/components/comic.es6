@@ -1,7 +1,7 @@
 window.Comic = (window.Comic || {});
-window.Comic.retrieve = function(options) {
+window.Comic.retrieve = function(options, success) {
   $.ajax("/comics.json", {
     data: options,
-    success: this.set.bind(this, "comics"),
+    success: success,
   });
 }
